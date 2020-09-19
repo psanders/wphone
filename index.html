@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h2>Rars-J - Outbound Demo</h2>
+
+    <div>
+      When this page was loaded, a <code>SimpleUser</code> was created.
+      <ol>
+        <li>Connect <code>SimpleUser</code> to server</li>
+        <li>Place call to destination</li>
+        <li>Hangup call</li>
+        <li>Disconnect</li>
+      </ol>
+    </div>
+  
+    <ol>
+      <li><button id="connect" disabled>Connect</button> with <code><span id="server"></span></code></li>
+      <li><button id="call" disabled>Place Call</button> with <code><span id="target"></span></code></li>
+      <li><button id="hangup" disabled>Hangup Call</button></li>
+      <li><button id="disconnect" disabled>Disconnect</button></li>
+    </ol>
+
+    <video id="remoteVideo"></video>
+    <video id="localVideo" muted="muted"></video>
+    <base href="/">
+  </body>
+
+  <script type="application/javascript" src="./dist/index.js"></script>
+</html>

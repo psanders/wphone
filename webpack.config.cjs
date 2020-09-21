@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'index': './dist/app.js'
+    'echo_test': './dist/echo_test.js',
+    'join_room': './dist/join_room.js'
   },
   devtool: 'inline-source-map',
   mode: 'development',

@@ -34,8 +34,7 @@ module.exports = {
       "process.env.SECRET": JSON.stringify(process.env.SECRET),
       "process.env.JITSI_SIP_URI": JSON.stringify(process.env.JITSI_SIP_URI),
       "process.env.DID_SIP_URI": JSON.stringify(process.env.DID_SIP_URI),
-      "process.env.ASTERISK_SIP_URI": JSON.stringify(process.env.ASTERISK_SIP_URI),
-      "process.env.DID_SIP_URI": JSON.stringify(process.env.DID_SIP_URI)
+      "process.env.ASTERISK_SIP_URI": JSON.stringify(process.env.ASTERISK_SIP_URI)
     })
   ]
 };

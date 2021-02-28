@@ -16,7 +16,7 @@ const muteCheckbox = getInput("mute");
 const webSocketServer = process.env.WSS_SERVER || process.env.WS_SERVER;
 const aor = process.env.MY_SIP_URI;
 const authorizationUsername = process.env.USERNAME;
-const authorizationPassword = process.env.SECERT;
+const authorizationPassword = process.env.SECRET;
 const target = process.env.ASTERISK_SIP_URI;
 
 // WebSocket Server URL

@@ -13,11 +13,11 @@ const dtmfSpan = getSpan("dtmf");
 const holdCheckbox = getInput("hold");
 const muteCheckbox = getInput("mute");
 
-const webSocketServer = 'ws://localhost:5062';
-const aor = 'sip:1001@sip.local';
-const authorizationUsername = '1001';
-const authorizationPassword = '1234';
-const target = 'sip:17853178070@sip.local';
+const webSocketServer = process.env.WSS_SERVER || process.env.WS_SERVER;
+const aor = process.env.MY_SIP_URI;
+const authorizationUsername = process.env.USERNAME;
+const authorizationPassword = process.env.SECERT;
+const target = process.env.DID_SIP_URI;
 
 // WebSocket Server URL
 serverSpan.innerHTML = webSocketServer;

@@ -4,7 +4,7 @@ services:
 
   # SIP.js based softphone for test with legacy SIP endpoints
   wphone:
-    image: psanders/wphone:latest
+    build: .
     restart: always
     ports: 
       - 8080:8080

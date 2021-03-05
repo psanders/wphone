@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && webpack --progress --config webpack.config.cjs",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/http-server/bin/http-server . -S -C ./etc/cert.pem -K ./etc/key.pem -o"
+    "start": "http-server . -S -C ./etc/cert.pem -K ./etc/key.pem -o"
   },
   "keywords": [
     "WebRTC",

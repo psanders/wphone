@@ -6,7 +6,8 @@ module.exports = {
   entry: {
     'echo_test': './dist/echo_test.js',
     'join_room': './dist/join_room.js',
-    'call_thru_gateway': './dist/call_thru_gateway.js'
+    'call_thru_gateway': './dist/call_thru_gateway.js',
+    'call_another_agent': './dist/call_another_agent.js'
   },
   devtool: 'inline-source-map',
   mode: 'development',

@@ -55,6 +55,10 @@ const simpleUserDelegate: SimpleUserDelegate = {
   onCallHold: (held: boolean): void => {
     console.log(`[${displayName}] Call hold ${held}`);
     holdCheckbox.checked = held;
+  },
+  onCallReceived: (): void => {
+    console.log(`[${displayName}] Call answer`);
+    answercall();
   }
 };
 
@@ -77,26 +81,30 @@ const simpleUserOptions: SimpleUserOptions = {
 // SimpleUser construction
 const simpleUser = new SimpleUser(webSocketServer, simpleUserOptions);
 
+function answercall () {
+  simpleUser.answer()
+}
+
 // Add click listener to connect button
-connectButton.addEventListener("click", () => {
+connectButton.addEventListener("click", async () => {
   connectButton.disabled = true;
   disconnectButton.disabled = true;
   callButton.disabled = true;
   hangupButton.disabled = true;
-  simpleUser
-    .connect()
-    .then(() => {
-      connectButton.disabled = true;
-      disconnectButton.disabled = false;
-      callButton.disabled = false;
-      hangupButton.disabled = true;
-    })
-    .catch((error: Error) => {
-      connectButton.disabled = false;
-      console.error(`[${simpleUser.id}] failed to connect`);
-      console.error(error);
-      alert("Failed to connect.\n" + error);
-    });
+  try{
+    await simpleUser.connect()
+    await simpleUser.register()
+      
+    connectButton.disabled = true;
+    disconnectButton.disabled = false;
+    callButton.disabled = false;
+    hangupButton.disabled = true;
+  } catch(error) {
+    connectButton.disabled = false;
+    console.error(`[${simpleUser.id}] failed to connect`);
+    console.error(error);
+    alert("Failed to connect.\n" + error);
+  }
 });
 
 // Add click listener to call button
@@ -122,11 +130,12 @@ hangupButton.addEventListener("click", () => {
 });
 
 // Add click listener to disconnect button
-disconnectButton.addEventListener("click", () => {
+disconnectButton.addEventListener("click", async () => {
   connectButton.disabled = true;
   disconnectButton.disabled = true;
   callButton.disabled = true;
   hangupButton.disabled = true;
+  await simpleUser.unregister()
   simpleUser
     .disconnect()
     .then(() => {
